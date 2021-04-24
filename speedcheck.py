@@ -41,7 +41,7 @@ def record_data():
     )
 
     q_ping = models.Ping(
-        timestamp = datetime.datetime.utwnow(),
+        timestamp = datetime.datetime.utcnow(),
         ip = r_ping.address,
         rtt_min = r_ping.min_rtt,
         rtt_avg = r_ping.avg_rtt,
