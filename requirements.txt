@@ -1,0 +1,5 @@
+greenlet==1.0.0
+icmplib==2.1.1
+psycopg2==2.8.6
+speedtest-cli==2.1.3
+SQLAlchemy==1.4.11

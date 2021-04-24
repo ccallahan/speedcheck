@@ -1,0 +1,1 @@
+DATABASE_URI = 'postgresql+psycopg2://speedtest:password@localhost:5432/speedtest'
