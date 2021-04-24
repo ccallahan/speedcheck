@@ -31,29 +31,24 @@ def record_data():
     r_speed = run_speedtest()
     r_ping = run_pingtest()
 
-    r_ploss = False
-
     s = Session()
 
-    if r_ping.packet_loss == 0.1:
-        r_ploss = True
-
     q_speed = models.Speedtest(
-        timestamp = datetime.datetime.now(),
+        timestamp = datetime.datetime.utcnow(),
         upload = r_speed[0],
         download = r_speed[1],
         ping = r_speed[2]
     )
 
     q_ping = models.Ping(
-        timestamp = datetime.datetime.now(),
+        timestamp = datetime.datetime.utwnow(),
         ip = r_ping.address,
         rtt_min = r_ping.min_rtt,
         rtt_avg = r_ping.avg_rtt,
         rtt_max = r_ping.max_rtt,
         sent = r_ping.packets_sent,
         received = r_ping.packets_received,
-        packet_loss = r_ploss
+        packet_loss = r_ping.packet_loss,
     )
 
     s.add(q_speed)
